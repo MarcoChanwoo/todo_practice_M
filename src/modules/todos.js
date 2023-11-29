@@ -18,3 +18,13 @@ export const insert = (text) => ({
     done: false,
   },
 });
+
+export const toggle = (id) => ({
+  type: TOGGLE,
+  id,
+});
+
+export const remove = (id) => ({
+  type: REMOVE,
+  id,
+});
