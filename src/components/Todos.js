@@ -7,3 +7,21 @@ const TodoItem = ({ todo, onToggle, onRemove }) => {
     </div>
   );
 };
+
+const Todos = ({
+  input, // 입력 텍스트
+  todos, // 할 일 목록
+  onchangeInput,
+  onInsert,
+  onToggle,
+  onRemove,
+}) => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+  return (
+    <div>
+      <form onSubmit={onSubmit}></form>
+    </div>
+  );
+};
