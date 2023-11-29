@@ -21,7 +21,10 @@ const Todos = ({
   };
   return (
     <div>
-      <form onSubmit={onSubmit}></form>
+      <form onSubmit={onSubmit}>
+        <input />
+        <button type="submit">등록</button>
+      </form>
     </div>
   );
 };
