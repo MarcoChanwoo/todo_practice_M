@@ -8,6 +8,7 @@ const CounterContainer = ({ number, increase, decrease }) => {
   );
 };
 
+// 제1안
 // const mapStateToProps = (state) => ({
 //   number: state.counter.number,
 // });
@@ -22,6 +23,7 @@ const CounterContainer = ({ number, increase, decrease }) => {
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
 
+// 제2안
 export default connect(
   (state) => ({
     number: state.counter.number,
