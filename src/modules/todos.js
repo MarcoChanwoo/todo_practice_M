@@ -28,3 +28,19 @@ export const remove = (id) => ({
   type: REMOVE,
   id,
 });
+
+const initialState = {
+  input: '',
+  todos: [
+    {
+      id: 1,
+      text: '리덕스와 기초',
+      done: true,
+    },
+    {
+      id: 2,
+      text: '리액트와 리덕스',
+      done: false,
+    },
+  ],
+};
