@@ -31,21 +31,21 @@ const REMOVE = 'todos/REMOVE';
 //   id,
 // });
 
-// const initialState = {
-//   input: '',
-//   todos: [
-//     {
-//       id: 1,
-//       text: '리덕스와 기초',
-//       done: true,
-//     },
-//     {
-//       id: 2,
-//       text: '리액트와 리덕스',
-//       done: false,
-//     },
-//   ],
-// };
+const initialState = {
+  input: '',
+  todos: [
+    {
+      id: 1,
+      text: '리덕스와 기초',
+      done: true,
+    },
+    {
+      id: 2,
+      text: '리액트와 리덕스',
+      done: false,
+    },
+  ],
+};
 
 // function todos(state = initialState, action) {
 //   switch (action.type) {
@@ -89,12 +89,25 @@ export const insert = createAction(INSERT, (text) => ({
 export const toggle = createAction(TOGGLE, (id) => id);
 export const remove = createAction(REMOVE, (id) => id);
 
-const todos = handleActions({
-  [CHANGE_INPUT]: (state, action) => ({ ...state, input: action.payload }),
-  [INSERT]: (state, action) => ({
-    ...state,
-    todos: state.todos.concat(action.payload),
-  }),
-});
+const todos = handleActions(
+  {
+    [CHANGE_INPUT]: (state, action) => ({ ...state, input: action.payload }),
+    [INSERT]: (state, action) => ({
+      ...state,
+      todos: state.todos.concat(action.payload),
+    }),
+    [TOGGLE]: (state, action) => ({
+      ...state,
+      todos: state.todos.map((todo) =>
+        todo.id === action.patload ? { ...todo, done: !todo.done } : todo,
+      ),
+    }),
+    [REMOVE]: (state, action) => ({
+      ...state,
+      todos: state.todos.filter((todo) => todo.id !== action.payload),
+    }),
+  },
+  initialState,
+);
 
 export default todos;
